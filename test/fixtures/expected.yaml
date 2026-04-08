@@ -1,0 +1,58 @@
+proxies:
+  - name: "[Demo] HK 01"
+    type: ss
+    server: hk.example.com
+    port: 443
+    cipher: aes-128-gcm
+    password: pass-1
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      mode: websocket
+      host: ws.hk.example.com
+proxy-groups:
+  - name: Auto
+    type: select
+    proxies:
+      - "[Demo] HK 01"
+    icon: https://example.com/icon.png
+    hidden: true
+proxy-providers:
+  provider-a:
+    type: http
+    url: https://provider.example.com/sub.yaml
+    path: ./provider-a.yaml
+    health-check:
+      enable: true
+      url: https://example.com/health
+      interval: 300
+    custom-meta:
+      region: asia
+      priority: 1
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  custom-nested:
+    fallback:
+      - tls://1.0.0.1:853
+      - https://dns.google/dns-query
+rule-providers:
+  custom-rules:
+    type: http
+    behavior: classical
+    url: https://rules.example.com/custom.yaml
+    path: ./rules/custom.yaml
+    format: yaml
+    custom-tags:
+      - streaming
+      - media
+rules:
+  - MATCH,Auto
+custom-root:
+  labels:
+    env: test
+    team: core
+  enabled: true

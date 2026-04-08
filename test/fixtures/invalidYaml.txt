@@ -1,0 +1,5 @@
+proxies:
+  - name: broken
+    type: ss
+    server: example.com
+    port: [443

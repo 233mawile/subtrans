@@ -5,17 +5,30 @@
   "license": "ISC",
   "author": "233mawile",
   "type": "module",
-  "main": "index.js",
+  "exports": {
+    ".": "./src/index.ts",
+    "./processorTypes": "./src/processorTypes/index.ts"
+  },
+  "imports": {
+    "#core": "./src/core/index.ts",
+    "#processorTypes": "./src/processorTypes/index.ts"
+  },
+  "main": "src/index.ts",
   "scripts": {
+    "start": "node .",
+    "tsc": "tsc --noEmit",
+    "test": "vitest run",
     "lint": "prettier ./src/ --check",
     "lint:fix": "prettier ./src/ --write"
   },
   "dependencies": {
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
     "@types/node": "^25.5.2",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "vitest": "^4.1.3"
   },
   "engines": {
     "node": "24"
