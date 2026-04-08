@@ -12,7 +12,7 @@ const HELP_TEXT = [
   "  node . --url <subscription-url> --script <processor-path> [--out <output-path>]",
   "",
   "Options:",
-  "  --url       Remote Clash subscription URL",
+  "  --url       Remote HTTP URL or local subscription file path",
   "  --script    Local processor module path",
   "  --out       Optional output file path",
   "  --help      Show this help message",
@@ -95,16 +95,6 @@ export function parseArgs(argv: string[]): CliArgs {
 
   if (!processorPath) {
     throw createUsageError("Missing required argument: --script");
-  }
-
-  try {
-    const parsedUrl = new URL(subscriptionUrl);
-
-    if (!["http:", "https:"].includes(parsedUrl.protocol)) {
-      throw new TypeError("Unsupported protocol");
-    }
-  } catch {
-    throw createUsageError(`Invalid subscription URL: ${subscriptionUrl}`);
   }
 
   const parsedArgs: CliArgs = {

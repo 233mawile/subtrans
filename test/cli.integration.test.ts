@@ -164,6 +164,39 @@ describe("cli integration", () => {
     expect(parse(outputContent)).toEqual(parse(expectedFixture));
   });
 
+  it("reads a local subscription file path and writes transformed yaml to stdout", async () => {
+    const result = await runCli([
+      "--url",
+      "./test/fixtures/subscription.yaml",
+      "--script",
+      "./test/fixtures/processor.js",
+    ]);
+
+    expect(result.exitCode).toBe(0);
+    expect(result.stderr).toBe("");
+    expect(parse(result.stdout)).toEqual(parse(expectedFixture));
+  });
+
+  it("reads a local subscription file path and writes transformed yaml to a file", async () => {
+    const tempDir = await mkdtemp(join(tmpdir(), "subtrans-local-"));
+    const outputPath = join(tempDir, "output.yaml");
+
+    const result = await runCli([
+      "--url",
+      "./test/fixtures/subscription.yaml",
+      "--script",
+      "./test/fixtures/processor.js",
+      "--out",
+      outputPath,
+    ]);
+
+    const outputContent = await readFile(outputPath, "utf8");
+
+    expect(result.exitCode).toBe(0);
+    expect(result.stderr).toBe("");
+    expect(parse(outputContent)).toEqual(parse(expectedFixture));
+  });
+
   it("fails when required arguments are missing", async () => {
     const result = await runCli([]);
 
