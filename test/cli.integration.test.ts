@@ -30,6 +30,10 @@ const expectedFixture = await readFile(
   join(fixturesDir, "expected.yaml"),
   "utf8",
 );
+const largeSubscriptionFixture = await readFile(
+  join(fixturesDir, "largeSubscription.yaml"),
+  "utf8",
+);
 
 let baseUrl = "";
 let server: ReturnType<typeof createServer>;
@@ -75,6 +79,10 @@ beforeAll(async () => {
           "content-type": "text/plain; charset=utf-8",
         });
         response.end(invalidYamlFixture);
+        return;
+      case "/large-subscription.yaml":
+        response.writeHead(200, { "content-type": "text/yaml; charset=utf-8" });
+        response.end(largeSubscriptionFixture);
         return;
       default:
         response.writeHead(404, {
@@ -197,6 +205,35 @@ describe("cli integration", () => {
     expect(parse(outputContent)).toEqual(parse(expectedFixture));
   });
 
+  it("processes a ~50KB subscription successfully inside the cli pipeline", async () => {
+    const result = await runCli([
+      "--url",
+      `${baseUrl}/large-subscription.yaml`,
+      "--script",
+      "./test/fixtures/processor.js",
+    ]);
+
+    const inputConfig = parse(largeSubscriptionFixture) as Record<
+      string,
+      unknown
+    >;
+    const outputConfig = parse(result.stdout) as Record<string, unknown>;
+    const inputProxies = inputConfig.proxies as Array<Record<string, unknown>>;
+    const outputProxies = outputConfig.proxies as Array<
+      Record<string, unknown>
+    >;
+
+    expect(
+      Buffer.byteLength(largeSubscriptionFixture, "utf8"),
+    ).toBeGreaterThanOrEqual(50 * 1024);
+    expect(result.exitCode).toBe(0);
+    expect(result.stderr).toBe("");
+    expect(result.stdout).toContain("[Demo]");
+    expect(outputProxies.length).toBeLessThan(inputProxies.length);
+    expect(outputConfig["custom-root"]).toEqual(inputConfig["custom-root"]);
+    expect(outputConfig.dns).toEqual(inputConfig.dns);
+  });
+
   it("fails when required arguments are missing", async () => {
     const result = await runCli([]);
 
@@ -213,9 +250,7 @@ describe("cli integration", () => {
     ]);
 
     expect(result.exitCode).toBe(2);
-    expect(result.stderr).toContain(
-      "Failed to fetch subscription: 404 Not Found",
-    );
+    expect(result.stderr).toContain("Failed to fetch resource: 404 Not Found");
   });
 
   it("fails when yaml parsing fails", async () => {

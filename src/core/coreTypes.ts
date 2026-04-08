@@ -1,7 +1,20 @@
+export interface NetworkTextInput {
+  type: "network";
+  url: string;
+}
+
+export interface SourceTextInput {
+  filename?: string;
+  text: string;
+  type: "source";
+}
+
+export type TextInput = NetworkTextInput | SourceTextInput;
+
 export interface RunPipelineInput {
   fetchImpl?: typeof fetch;
-  processorPath: string;
-  subscriptionUrl: string;
+  processor: TextInput;
+  subscription: TextInput;
 }
 
 export interface RunPipelineResult {
