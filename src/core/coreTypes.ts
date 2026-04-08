@@ -7,7 +7,3 @@ export interface RunPipelineInput {
 export interface RunPipelineResult {
   outputYaml: string;
 }
-
-export interface ProcessorModule {
-  default?: unknown;
-}

@@ -22,6 +22,8 @@
     "lint:fix": "prettier ./src/ --write"
   },
   "dependencies": {
+    "@jitl/quickjs-wasmfile-release-sync": "^0.32.0",
+    "quickjs-emscripten-core": "^0.32.0",
     "typescript": "^6.0.2",
     "yaml": "^2.8.1"
   },

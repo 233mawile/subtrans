@@ -1,0 +1,2226 @@
+proxies:
+  - name: "Trial Node 0001"
+    type: ss
+    server: node-0001.example.com
+    port: 20000
+    cipher: aes-128-gcm
+    password: pass-0001
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0001.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0002"
+    type: ss
+    server: node-0002.example.com
+    port: 20001
+    cipher: aes-128-gcm
+    password: pass-0002
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0002.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0003"
+    type: ss
+    server: node-0003.example.com
+    port: 20002
+    cipher: aes-128-gcm
+    password: pass-0003
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0003.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0004"
+    type: ss
+    server: node-0004.example.com
+    port: 20003
+    cipher: aes-128-gcm
+    password: pass-0004
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0004.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0005"
+    type: ss
+    server: node-0005.example.com
+    port: 20004
+    cipher: aes-128-gcm
+    password: pass-0005
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0005.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0006"
+    type: ss
+    server: node-0006.example.com
+    port: 20005
+    cipher: aes-128-gcm
+    password: pass-0006
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0006.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0007"
+    type: ss
+    server: node-0007.example.com
+    port: 20006
+    cipher: aes-128-gcm
+    password: pass-0007
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0007.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "Trial Node 0008"
+    type: ss
+    server: node-0008.example.com
+    port: 20007
+    cipher: aes-128-gcm
+    password: pass-0008
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0008.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0009"
+    type: ss
+    server: node-0009.example.com
+    port: 20008
+    cipher: aes-128-gcm
+    password: pass-0009
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0009.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0010"
+    type: ss
+    server: node-0010.example.com
+    port: 20009
+    cipher: aes-128-gcm
+    password: pass-0010
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0010.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0011"
+    type: ss
+    server: node-0011.example.com
+    port: 20010
+    cipher: aes-128-gcm
+    password: pass-0011
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0011.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0012"
+    type: ss
+    server: node-0012.example.com
+    port: 20011
+    cipher: aes-128-gcm
+    password: pass-0012
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0012.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0013"
+    type: ss
+    server: node-0013.example.com
+    port: 20012
+    cipher: aes-128-gcm
+    password: pass-0013
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0013.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0014"
+    type: ss
+    server: node-0014.example.com
+    port: 20013
+    cipher: aes-128-gcm
+    password: pass-0014
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0014.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "Trial Node 0015"
+    type: ss
+    server: node-0015.example.com
+    port: 20014
+    cipher: aes-128-gcm
+    password: pass-0015
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0015.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0016"
+    type: ss
+    server: node-0016.example.com
+    port: 20015
+    cipher: aes-128-gcm
+    password: pass-0016
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0016.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0017"
+    type: ss
+    server: node-0017.example.com
+    port: 20016
+    cipher: aes-128-gcm
+    password: pass-0017
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0017.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0018"
+    type: ss
+    server: node-0018.example.com
+    port: 20017
+    cipher: aes-128-gcm
+    password: pass-0018
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0018.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0019"
+    type: ss
+    server: node-0019.example.com
+    port: 20018
+    cipher: aes-128-gcm
+    password: pass-0019
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0019.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0020"
+    type: ss
+    server: node-0020.example.com
+    port: 20019
+    cipher: aes-128-gcm
+    password: pass-0020
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0020.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0021"
+    type: ss
+    server: node-0021.example.com
+    port: 20020
+    cipher: aes-128-gcm
+    password: pass-0021
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0021.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "Trial Node 0022"
+    type: ss
+    server: node-0022.example.com
+    port: 20021
+    cipher: aes-128-gcm
+    password: pass-0022
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0022.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0023"
+    type: ss
+    server: node-0023.example.com
+    port: 20022
+    cipher: aes-128-gcm
+    password: pass-0023
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0023.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0024"
+    type: ss
+    server: node-0024.example.com
+    port: 20023
+    cipher: aes-128-gcm
+    password: pass-0024
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0024.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0025"
+    type: ss
+    server: node-0025.example.com
+    port: 20024
+    cipher: aes-128-gcm
+    password: pass-0025
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0025.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0026"
+    type: ss
+    server: node-0026.example.com
+    port: 20025
+    cipher: aes-128-gcm
+    password: pass-0026
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0026.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0027"
+    type: ss
+    server: node-0027.example.com
+    port: 20026
+    cipher: aes-128-gcm
+    password: pass-0027
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0027.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0028"
+    type: ss
+    server: node-0028.example.com
+    port: 20027
+    cipher: aes-128-gcm
+    password: pass-0028
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0028.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "Trial Node 0029"
+    type: ss
+    server: node-0029.example.com
+    port: 20028
+    cipher: aes-128-gcm
+    password: pass-0029
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0029.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0030"
+    type: ss
+    server: node-0030.example.com
+    port: 20029
+    cipher: aes-128-gcm
+    password: pass-0030
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0030.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0031"
+    type: ss
+    server: node-0031.example.com
+    port: 20030
+    cipher: aes-128-gcm
+    password: pass-0031
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0031.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0032"
+    type: ss
+    server: node-0032.example.com
+    port: 20031
+    cipher: aes-128-gcm
+    password: pass-0032
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0032.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0033"
+    type: ss
+    server: node-0033.example.com
+    port: 20032
+    cipher: aes-128-gcm
+    password: pass-0033
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0033.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0034"
+    type: ss
+    server: node-0034.example.com
+    port: 20033
+    cipher: aes-128-gcm
+    password: pass-0034
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0034.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0035"
+    type: ss
+    server: node-0035.example.com
+    port: 20034
+    cipher: aes-128-gcm
+    password: pass-0035
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0035.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "Trial Node 0036"
+    type: ss
+    server: node-0036.example.com
+    port: 20035
+    cipher: aes-128-gcm
+    password: pass-0036
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0036.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0037"
+    type: ss
+    server: node-0037.example.com
+    port: 20036
+    cipher: aes-128-gcm
+    password: pass-0037
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0037.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0038"
+    type: ss
+    server: node-0038.example.com
+    port: 20037
+    cipher: aes-128-gcm
+    password: pass-0038
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0038.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0039"
+    type: ss
+    server: node-0039.example.com
+    port: 20038
+    cipher: aes-128-gcm
+    password: pass-0039
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0039.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0040"
+    type: ss
+    server: node-0040.example.com
+    port: 20039
+    cipher: aes-128-gcm
+    password: pass-0040
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0040.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0041"
+    type: ss
+    server: node-0041.example.com
+    port: 20040
+    cipher: aes-128-gcm
+    password: pass-0041
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0041.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0042"
+    type: ss
+    server: node-0042.example.com
+    port: 20041
+    cipher: aes-128-gcm
+    password: pass-0042
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0042.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "Trial Node 0043"
+    type: ss
+    server: node-0043.example.com
+    port: 20042
+    cipher: aes-128-gcm
+    password: pass-0043
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0043.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0044"
+    type: ss
+    server: node-0044.example.com
+    port: 20043
+    cipher: aes-128-gcm
+    password: pass-0044
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0044.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0045"
+    type: ss
+    server: node-0045.example.com
+    port: 20044
+    cipher: aes-128-gcm
+    password: pass-0045
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0045.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0046"
+    type: ss
+    server: node-0046.example.com
+    port: 20045
+    cipher: aes-128-gcm
+    password: pass-0046
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0046.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0047"
+    type: ss
+    server: node-0047.example.com
+    port: 20046
+    cipher: aes-128-gcm
+    password: pass-0047
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0047.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0048"
+    type: ss
+    server: node-0048.example.com
+    port: 20047
+    cipher: aes-128-gcm
+    password: pass-0048
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0048.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0049"
+    type: ss
+    server: node-0049.example.com
+    port: 20048
+    cipher: aes-128-gcm
+    password: pass-0049
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0049.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "Trial Node 0050"
+    type: ss
+    server: node-0050.example.com
+    port: 20049
+    cipher: aes-128-gcm
+    password: pass-0050
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0050.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0051"
+    type: ss
+    server: node-0051.example.com
+    port: 20050
+    cipher: aes-128-gcm
+    password: pass-0051
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0051.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0052"
+    type: ss
+    server: node-0052.example.com
+    port: 20051
+    cipher: aes-128-gcm
+    password: pass-0052
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0052.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0053"
+    type: ss
+    server: node-0053.example.com
+    port: 20052
+    cipher: aes-128-gcm
+    password: pass-0053
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0053.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0054"
+    type: ss
+    server: node-0054.example.com
+    port: 20053
+    cipher: aes-128-gcm
+    password: pass-0054
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0054.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0055"
+    type: ss
+    server: node-0055.example.com
+    port: 20054
+    cipher: aes-128-gcm
+    password: pass-0055
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0055.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0056"
+    type: ss
+    server: node-0056.example.com
+    port: 20055
+    cipher: aes-128-gcm
+    password: pass-0056
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0056.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "Trial Node 0057"
+    type: ss
+    server: node-0057.example.com
+    port: 20056
+    cipher: aes-128-gcm
+    password: pass-0057
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0057.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0058"
+    type: ss
+    server: node-0058.example.com
+    port: 20057
+    cipher: aes-128-gcm
+    password: pass-0058
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0058.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0059"
+    type: ss
+    server: node-0059.example.com
+    port: 20058
+    cipher: aes-128-gcm
+    password: pass-0059
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0059.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0060"
+    type: ss
+    server: node-0060.example.com
+    port: 20059
+    cipher: aes-128-gcm
+    password: pass-0060
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0060.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0061"
+    type: ss
+    server: node-0061.example.com
+    port: 20060
+    cipher: aes-128-gcm
+    password: pass-0061
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0061.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0062"
+    type: ss
+    server: node-0062.example.com
+    port: 20061
+    cipher: aes-128-gcm
+    password: pass-0062
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0062.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0063"
+    type: ss
+    server: node-0063.example.com
+    port: 20062
+    cipher: aes-128-gcm
+    password: pass-0063
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0063.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "Trial Node 0064"
+    type: ss
+    server: node-0064.example.com
+    port: 20063
+    cipher: aes-128-gcm
+    password: pass-0064
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0064.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0065"
+    type: ss
+    server: node-0065.example.com
+    port: 20064
+    cipher: aes-128-gcm
+    password: pass-0065
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0065.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0066"
+    type: ss
+    server: node-0066.example.com
+    port: 20065
+    cipher: aes-128-gcm
+    password: pass-0066
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0066.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0067"
+    type: ss
+    server: node-0067.example.com
+    port: 20066
+    cipher: aes-128-gcm
+    password: pass-0067
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0067.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0068"
+    type: ss
+    server: node-0068.example.com
+    port: 20067
+    cipher: aes-128-gcm
+    password: pass-0068
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0068.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0069"
+    type: ss
+    server: node-0069.example.com
+    port: 20068
+    cipher: aes-128-gcm
+    password: pass-0069
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0069.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0070"
+    type: ss
+    server: node-0070.example.com
+    port: 20069
+    cipher: aes-128-gcm
+    password: pass-0070
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0070.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "Trial Node 0071"
+    type: ss
+    server: node-0071.example.com
+    port: 20070
+    cipher: aes-128-gcm
+    password: pass-0071
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0071.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0072"
+    type: ss
+    server: node-0072.example.com
+    port: 20071
+    cipher: aes-128-gcm
+    password: pass-0072
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0072.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0073"
+    type: ss
+    server: node-0073.example.com
+    port: 20072
+    cipher: aes-128-gcm
+    password: pass-0073
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0073.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0074"
+    type: ss
+    server: node-0074.example.com
+    port: 20073
+    cipher: aes-128-gcm
+    password: pass-0074
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0074.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0075"
+    type: ss
+    server: node-0075.example.com
+    port: 20074
+    cipher: aes-128-gcm
+    password: pass-0075
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0075.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0076"
+    type: ss
+    server: node-0076.example.com
+    port: 20075
+    cipher: aes-128-gcm
+    password: pass-0076
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0076.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0077"
+    type: ss
+    server: node-0077.example.com
+    port: 20076
+    cipher: aes-128-gcm
+    password: pass-0077
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0077.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "Trial Node 0078"
+    type: ss
+    server: node-0078.example.com
+    port: 20077
+    cipher: aes-128-gcm
+    password: pass-0078
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0078.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0079"
+    type: ss
+    server: node-0079.example.com
+    port: 20078
+    cipher: aes-128-gcm
+    password: pass-0079
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0079.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0080"
+    type: ss
+    server: node-0080.example.com
+    port: 20079
+    cipher: aes-128-gcm
+    password: pass-0080
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0080.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0081"
+    type: ss
+    server: node-0081.example.com
+    port: 20080
+    cipher: aes-128-gcm
+    password: pass-0081
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0081.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0082"
+    type: ss
+    server: node-0082.example.com
+    port: 20081
+    cipher: aes-128-gcm
+    password: pass-0082
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0082.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0083"
+    type: ss
+    server: node-0083.example.com
+    port: 20082
+    cipher: aes-128-gcm
+    password: pass-0083
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0083.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0084"
+    type: ss
+    server: node-0084.example.com
+    port: 20083
+    cipher: aes-128-gcm
+    password: pass-0084
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0084.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "Trial Node 0085"
+    type: ss
+    server: node-0085.example.com
+    port: 20084
+    cipher: aes-128-gcm
+    password: pass-0085
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0085.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0086"
+    type: ss
+    server: node-0086.example.com
+    port: 20085
+    cipher: aes-128-gcm
+    password: pass-0086
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0086.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0087"
+    type: ss
+    server: node-0087.example.com
+    port: 20086
+    cipher: aes-128-gcm
+    password: pass-0087
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0087.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0088"
+    type: ss
+    server: node-0088.example.com
+    port: 20087
+    cipher: aes-128-gcm
+    password: pass-0088
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0088.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0089"
+    type: ss
+    server: node-0089.example.com
+    port: 20088
+    cipher: aes-128-gcm
+    password: pass-0089
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0089.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0090"
+    type: ss
+    server: node-0090.example.com
+    port: 20089
+    cipher: aes-128-gcm
+    password: pass-0090
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0090.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0091"
+    type: ss
+    server: node-0091.example.com
+    port: 20090
+    cipher: aes-128-gcm
+    password: pass-0091
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0091.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "Trial Node 0092"
+    type: ss
+    server: node-0092.example.com
+    port: 20091
+    cipher: aes-128-gcm
+    password: pass-0092
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0092.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0093"
+    type: ss
+    server: node-0093.example.com
+    port: 20092
+    cipher: aes-128-gcm
+    password: pass-0093
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0093.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0094"
+    type: ss
+    server: node-0094.example.com
+    port: 20093
+    cipher: aes-128-gcm
+    password: pass-0094
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0094.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0095"
+    type: ss
+    server: node-0095.example.com
+    port: 20094
+    cipher: aes-128-gcm
+    password: pass-0095
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0095.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0096"
+    type: ss
+    server: node-0096.example.com
+    port: 20095
+    cipher: aes-128-gcm
+    password: pass-0096
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0096.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0097"
+    type: ss
+    server: node-0097.example.com
+    port: 20096
+    cipher: aes-128-gcm
+    password: pass-0097
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0097.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0098"
+    type: ss
+    server: node-0098.example.com
+    port: 20097
+    cipher: aes-128-gcm
+    password: pass-0098
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0098.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "Trial Node 0099"
+    type: ss
+    server: node-0099.example.com
+    port: 20098
+    cipher: aes-128-gcm
+    password: pass-0099
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0099.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0100"
+    type: ss
+    server: node-0100.example.com
+    port: 20099
+    cipher: aes-128-gcm
+    password: pass-0100
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0100.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0101"
+    type: ss
+    server: node-0101.example.com
+    port: 20100
+    cipher: aes-128-gcm
+    password: pass-0101
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0101.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0102"
+    type: ss
+    server: node-0102.example.com
+    port: 20101
+    cipher: aes-128-gcm
+    password: pass-0102
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0102.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0103"
+    type: ss
+    server: node-0103.example.com
+    port: 20102
+    cipher: aes-128-gcm
+    password: pass-0103
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0103.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0104"
+    type: ss
+    server: node-0104.example.com
+    port: 20103
+    cipher: aes-128-gcm
+    password: pass-0104
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0104.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0105"
+    type: ss
+    server: node-0105.example.com
+    port: 20104
+    cipher: aes-128-gcm
+    password: pass-0105
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0105.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "Trial Node 0106"
+    type: ss
+    server: node-0106.example.com
+    port: 20105
+    cipher: aes-128-gcm
+    password: pass-0106
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0106.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0107"
+    type: ss
+    server: node-0107.example.com
+    port: 20106
+    cipher: aes-128-gcm
+    password: pass-0107
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0107.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0108"
+    type: ss
+    server: node-0108.example.com
+    port: 20107
+    cipher: aes-128-gcm
+    password: pass-0108
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0108.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0109"
+    type: ss
+    server: node-0109.example.com
+    port: 20108
+    cipher: aes-128-gcm
+    password: pass-0109
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0109.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0110"
+    type: ss
+    server: node-0110.example.com
+    port: 20109
+    cipher: aes-128-gcm
+    password: pass-0110
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0110.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0111"
+    type: ss
+    server: node-0111.example.com
+    port: 20110
+    cipher: aes-128-gcm
+    password: pass-0111
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0111.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0112"
+    type: ss
+    server: node-0112.example.com
+    port: 20111
+    cipher: aes-128-gcm
+    password: pass-0112
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0112.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "Trial Node 0113"
+    type: ss
+    server: node-0113.example.com
+    port: 20112
+    cipher: aes-128-gcm
+    password: pass-0113
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0113.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0114"
+    type: ss
+    server: node-0114.example.com
+    port: 20113
+    cipher: aes-128-gcm
+    password: pass-0114
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0114.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0115"
+    type: ss
+    server: node-0115.example.com
+    port: 20114
+    cipher: aes-128-gcm
+    password: pass-0115
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0115.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0116"
+    type: ss
+    server: node-0116.example.com
+    port: 20115
+    cipher: aes-128-gcm
+    password: pass-0116
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0116.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0117"
+    type: ss
+    server: node-0117.example.com
+    port: 20116
+    cipher: aes-128-gcm
+    password: pass-0117
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0117.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0118"
+    type: ss
+    server: node-0118.example.com
+    port: 20117
+    cipher: aes-128-gcm
+    password: pass-0118
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0118.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0119"
+    type: ss
+    server: node-0119.example.com
+    port: 20118
+    cipher: aes-128-gcm
+    password: pass-0119
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0119.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "Trial Node 0120"
+    type: ss
+    server: node-0120.example.com
+    port: 20119
+    cipher: aes-128-gcm
+    password: pass-0120
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0120.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0121"
+    type: ss
+    server: node-0121.example.com
+    port: 20120
+    cipher: aes-128-gcm
+    password: pass-0121
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0121.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0122"
+    type: ss
+    server: node-0122.example.com
+    port: 20121
+    cipher: aes-128-gcm
+    password: pass-0122
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0122.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0123"
+    type: ss
+    server: node-0123.example.com
+    port: 20122
+    cipher: aes-128-gcm
+    password: pass-0123
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0123.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0124"
+    type: ss
+    server: node-0124.example.com
+    port: 20123
+    cipher: aes-128-gcm
+    password: pass-0124
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0124.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0125"
+    type: ss
+    server: node-0125.example.com
+    port: 20124
+    cipher: aes-128-gcm
+    password: pass-0125
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0125.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0126"
+    type: ss
+    server: node-0126.example.com
+    port: 20125
+    cipher: aes-128-gcm
+    password: pass-0126
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0126.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "Trial Node 0127"
+    type: ss
+    server: node-0127.example.com
+    port: 20126
+    cipher: aes-128-gcm
+    password: pass-0127
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0127.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0128"
+    type: ss
+    server: node-0128.example.com
+    port: 20127
+    cipher: aes-128-gcm
+    password: pass-0128
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0128.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0129"
+    type: ss
+    server: node-0129.example.com
+    port: 20128
+    cipher: aes-128-gcm
+    password: pass-0129
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0129.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0130"
+    type: ss
+    server: node-0130.example.com
+    port: 20129
+    cipher: aes-128-gcm
+    password: pass-0130
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0130.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0131"
+    type: ss
+    server: node-0131.example.com
+    port: 20130
+    cipher: aes-128-gcm
+    password: pass-0131
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0131.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0132"
+    type: ss
+    server: node-0132.example.com
+    port: 20131
+    cipher: aes-128-gcm
+    password: pass-0132
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0132.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0133"
+    type: ss
+    server: node-0133.example.com
+    port: 20132
+    cipher: aes-128-gcm
+    password: pass-0133
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0133.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "Trial Node 0134"
+    type: ss
+    server: node-0134.example.com
+    port: 20133
+    cipher: aes-128-gcm
+    password: pass-0134
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0134.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0135"
+    type: ss
+    server: node-0135.example.com
+    port: 20134
+    cipher: aes-128-gcm
+    password: pass-0135
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0135.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0136"
+    type: ss
+    server: node-0136.example.com
+    port: 20135
+    cipher: aes-128-gcm
+    password: pass-0136
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0136.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0137"
+    type: ss
+    server: node-0137.example.com
+    port: 20136
+    cipher: aes-128-gcm
+    password: pass-0137
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0137.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0138"
+    type: ss
+    server: node-0138.example.com
+    port: 20137
+    cipher: aes-128-gcm
+    password: pass-0138
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0138.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0139"
+    type: ss
+    server: node-0139.example.com
+    port: 20138
+    cipher: aes-128-gcm
+    password: pass-0139
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0139.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0140"
+    type: ss
+    server: node-0140.example.com
+    port: 20139
+    cipher: aes-128-gcm
+    password: pass-0140
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0140.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "Trial Node 0141"
+    type: ss
+    server: node-0141.example.com
+    port: 20140
+    cipher: aes-128-gcm
+    password: pass-0141
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0141.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0142"
+    type: ss
+    server: node-0142.example.com
+    port: 20141
+    cipher: aes-128-gcm
+    password: pass-0142
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0142.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0143"
+    type: ss
+    server: node-0143.example.com
+    port: 20142
+    cipher: aes-128-gcm
+    password: pass-0143
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0143.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0144"
+    type: ss
+    server: node-0144.example.com
+    port: 20143
+    cipher: aes-128-gcm
+    password: pass-0144
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0144.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0145"
+    type: ss
+    server: node-0145.example.com
+    port: 20144
+    cipher: aes-128-gcm
+    password: pass-0145
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0145.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0146"
+    type: ss
+    server: node-0146.example.com
+    port: 20145
+    cipher: aes-128-gcm
+    password: pass-0146
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0146.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0147"
+    type: ss
+    server: node-0147.example.com
+    port: 20146
+    cipher: aes-128-gcm
+    password: pass-0147
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0147.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "Trial Node 0148"
+    type: ss
+    server: node-0148.example.com
+    port: 20147
+    cipher: aes-128-gcm
+    password: pass-0148
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0148.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0149"
+    type: ss
+    server: node-0149.example.com
+    port: 20148
+    cipher: aes-128-gcm
+    password: pass-0149
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0149.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0150"
+    type: ss
+    server: node-0150.example.com
+    port: 20149
+    cipher: aes-128-gcm
+    password: pass-0150
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0150.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0151"
+    type: ss
+    server: node-0151.example.com
+    port: 20150
+    cipher: aes-128-gcm
+    password: pass-0151
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0151.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0152"
+    type: ss
+    server: node-0152.example.com
+    port: 20151
+    cipher: aes-128-gcm
+    password: pass-0152
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0152.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0153"
+    type: ss
+    server: node-0153.example.com
+    port: 20152
+    cipher: aes-128-gcm
+    password: pass-0153
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0153.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0154"
+    type: ss
+    server: node-0154.example.com
+    port: 20153
+    cipher: aes-128-gcm
+    password: pass-0154
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0154.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "Trial Node 0155"
+    type: ss
+    server: node-0155.example.com
+    port: 20154
+    cipher: aes-128-gcm
+    password: pass-0155
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0155.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0156"
+    type: ss
+    server: node-0156.example.com
+    port: 20155
+    cipher: aes-128-gcm
+    password: pass-0156
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0156.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0157"
+    type: ss
+    server: node-0157.example.com
+    port: 20156
+    cipher: aes-128-gcm
+    password: pass-0157
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0157.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0158"
+    type: ss
+    server: node-0158.example.com
+    port: 20157
+    cipher: aes-128-gcm
+    password: pass-0158
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0158.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0159"
+    type: ss
+    server: node-0159.example.com
+    port: 20158
+    cipher: aes-128-gcm
+    password: pass-0159
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0159.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0160"
+    type: ss
+    server: node-0160.example.com
+    port: 20159
+    cipher: aes-128-gcm
+    password: pass-0160
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0160.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0161"
+    type: ss
+    server: node-0161.example.com
+    port: 20160
+    cipher: aes-128-gcm
+    password: pass-0161
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0161.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "Trial Node 0162"
+    type: ss
+    server: node-0162.example.com
+    port: 20161
+    cipher: aes-128-gcm
+    password: pass-0162
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0162.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0163"
+    type: ss
+    server: node-0163.example.com
+    port: 20162
+    cipher: aes-128-gcm
+    password: pass-0163
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0163.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "HK Node 0164"
+    type: ss
+    server: node-0164.example.com
+    port: 20163
+    cipher: aes-128-gcm
+    password: pass-0164
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0164.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0165"
+    type: ss
+    server: node-0165.example.com
+    port: 20164
+    cipher: aes-128-gcm
+    password: pass-0165
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0165.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+  - name: "HK Node 0166"
+    type: ss
+    server: node-0166.example.com
+    port: 20165
+    cipher: aes-128-gcm
+    password: pass-0166
+    udp: false
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0166.example.com
+      mode: websocket
+    custom-meta: { lane: 0, region: hk }
+  - name: "HK Node 0167"
+    type: ss
+    server: node-0167.example.com
+    port: 20166
+    cipher: aes-128-gcm
+    password: pass-0167
+    udp: true
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0167.example.com
+      mode: websocket
+    custom-meta: { lane: 1, region: hk }
+  - name: "HK Node 0168"
+    type: ss
+    server: node-0168.example.com
+    port: 20167
+    cipher: aes-128-gcm
+    password: pass-0168
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0168.example.com
+      mode: websocket
+    custom-meta: { lane: 2, region: hk }
+  - name: "Trial Node 0169"
+    type: ss
+    server: node-0169.example.com
+    port: 20168
+    cipher: aes-128-gcm
+    password: pass-0169
+    udp: true
+    client-fingerprint: chrome
+    plugin-opts:
+      host: ws-0169.example.com
+      mode: websocket
+    custom-meta: { lane: 3, region: hk }
+  - name: "HK Node 0170"
+    type: ss
+    server: node-0170.example.com
+    port: 20169
+    cipher: aes-128-gcm
+    password: pass-0170
+    udp: false
+    client-fingerprint: safari
+    plugin-opts:
+      host: ws-0170.example.com
+      mode: websocket
+    custom-meta: { lane: 4, region: hk }
+proxy-groups:
+  - name: "Auto"
+    type: select
+    proxies:
+      - "Trial Node 0001"
+      - "HK Node 0002"
+      - "HK Node 0003"
+      - "HK Node 0004"
+      - "HK Node 0005"
+      - "HK Node 0006"
+      - "HK Node 0007"
+      - "Trial Node 0008"
+      - "HK Node 0009"
+      - "HK Node 0010"
+      - "HK Node 0011"
+      - "HK Node 0012"
+      - "HK Node 0013"
+      - "HK Node 0014"
+      - "Trial Node 0015"
+      - "HK Node 0016"
+      - "HK Node 0017"
+      - "HK Node 0018"
+      - "HK Node 0019"
+      - "HK Node 0020"
+      - "HK Node 0021"
+      - "Trial Node 0022"
+      - "HK Node 0023"
+      - "HK Node 0024"
+      - "HK Node 0025"
+      - "HK Node 0026"
+      - "HK Node 0027"
+      - "HK Node 0028"
+      - "Trial Node 0029"
+      - "HK Node 0030"
+      - "HK Node 0031"
+      - "HK Node 0032"
+      - "HK Node 0033"
+      - "HK Node 0034"
+      - "HK Node 0035"
+      - "Trial Node 0036"
+      - "HK Node 0037"
+      - "HK Node 0038"
+      - "HK Node 0039"
+      - "HK Node 0040"
+      - "HK Node 0041"
+      - "HK Node 0042"
+      - "Trial Node 0043"
+      - "HK Node 0044"
+      - "HK Node 0045"
+      - "HK Node 0046"
+      - "HK Node 0047"
+      - "HK Node 0048"
+      - "HK Node 0049"
+      - "Trial Node 0050"
+      - "HK Node 0051"
+      - "HK Node 0052"
+      - "HK Node 0053"
+      - "HK Node 0054"
+      - "HK Node 0055"
+      - "HK Node 0056"
+      - "Trial Node 0057"
+      - "HK Node 0058"
+      - "HK Node 0059"
+      - "HK Node 0060"
+      - "HK Node 0061"
+      - "HK Node 0062"
+      - "HK Node 0063"
+      - "Trial Node 0064"
+      - "HK Node 0065"
+      - "HK Node 0066"
+      - "HK Node 0067"
+      - "HK Node 0068"
+      - "HK Node 0069"
+      - "HK Node 0070"
+      - "Trial Node 0071"
+      - "HK Node 0072"
+      - "HK Node 0073"
+      - "HK Node 0074"
+      - "HK Node 0075"
+      - "HK Node 0076"
+      - "HK Node 0077"
+      - "Trial Node 0078"
+      - "HK Node 0079"
+      - "HK Node 0080"
+      - "HK Node 0081"
+      - "HK Node 0082"
+      - "HK Node 0083"
+      - "HK Node 0084"
+      - "Trial Node 0085"
+      - "HK Node 0086"
+      - "HK Node 0087"
+      - "HK Node 0088"
+      - "HK Node 0089"
+      - "HK Node 0090"
+      - "HK Node 0091"
+      - "Trial Node 0092"
+      - "HK Node 0093"
+      - "HK Node 0094"
+      - "HK Node 0095"
+      - "HK Node 0096"
+      - "HK Node 0097"
+      - "HK Node 0098"
+      - "Trial Node 0099"
+      - "HK Node 0100"
+      - "HK Node 0101"
+      - "HK Node 0102"
+      - "HK Node 0103"
+      - "HK Node 0104"
+      - "HK Node 0105"
+      - "Trial Node 0106"
+      - "HK Node 0107"
+      - "HK Node 0108"
+      - "HK Node 0109"
+      - "HK Node 0110"
+      - "HK Node 0111"
+      - "HK Node 0112"
+      - "Trial Node 0113"
+      - "HK Node 0114"
+      - "HK Node 0115"
+      - "HK Node 0116"
+      - "HK Node 0117"
+      - "HK Node 0118"
+      - "HK Node 0119"
+      - "Trial Node 0120"
+      - "HK Node 0121"
+      - "HK Node 0122"
+      - "HK Node 0123"
+      - "HK Node 0124"
+      - "HK Node 0125"
+      - "HK Node 0126"
+      - "Trial Node 0127"
+      - "HK Node 0128"
+      - "HK Node 0129"
+      - "HK Node 0130"
+      - "HK Node 0131"
+      - "HK Node 0132"
+      - "HK Node 0133"
+      - "Trial Node 0134"
+      - "HK Node 0135"
+      - "HK Node 0136"
+      - "HK Node 0137"
+      - "HK Node 0138"
+      - "HK Node 0139"
+      - "HK Node 0140"
+      - "Trial Node 0141"
+      - "HK Node 0142"
+      - "HK Node 0143"
+      - "HK Node 0144"
+      - "HK Node 0145"
+      - "HK Node 0146"
+      - "HK Node 0147"
+      - "Trial Node 0148"
+      - "HK Node 0149"
+      - "HK Node 0150"
+      - "HK Node 0151"
+      - "HK Node 0152"
+      - "HK Node 0153"
+      - "HK Node 0154"
+      - "Trial Node 0155"
+      - "HK Node 0156"
+      - "HK Node 0157"
+      - "HK Node 0158"
+      - "HK Node 0159"
+      - "HK Node 0160"
+      - "HK Node 0161"
+      - "Trial Node 0162"
+      - "HK Node 0163"
+      - "HK Node 0164"
+      - "HK Node 0165"
+      - "HK Node 0166"
+      - "HK Node 0167"
+      - "HK Node 0168"
+      - "Trial Node 0169"
+      - "HK Node 0170"
+    icon: https://example.com/icon.png
+dns:
+  enable: true
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+rules:
+  - MATCH,Auto
+custom-root:
+  generated: true
+  proxy-count: 170

@@ -112,7 +112,7 @@ describe("cli integration", () => {
       "--url",
       `${baseUrl}/subscription.yaml`,
       "--script",
-      "./test/fixtures/processor.ts",
+      "./test/fixtures/processor.js",
     ]);
 
     const outputConfig = parse(result.stdout) as Record<string, unknown>;
@@ -152,7 +152,7 @@ describe("cli integration", () => {
       "--url",
       `${baseUrl}/subscription.yaml`,
       "--script",
-      "./test/fixtures/processor.ts",
+      "./test/fixtures/processor.js",
       "--out",
       outputPath,
     ]);
@@ -176,7 +176,7 @@ describe("cli integration", () => {
       "--url",
       `${baseUrl}/missing`,
       "--script",
-      "./test/fixtures/processor.ts",
+      "./test/fixtures/processor.js",
     ]);
 
     expect(result.exitCode).toBe(2);
@@ -190,7 +190,7 @@ describe("cli integration", () => {
       "--url",
       `${baseUrl}/invalid-yaml`,
       "--script",
-      "./test/fixtures/processor.ts",
+      "./test/fixtures/processor.js",
     ]);
 
     expect(result.exitCode).toBe(3);
@@ -202,7 +202,7 @@ describe("cli integration", () => {
       "--url",
       `${baseUrl}/subscription.yaml`,
       "--script",
-      "./test/fixtures/invalidProcessor.ts",
+      "./test/fixtures/invalidProcessor.js",
     ]);
 
     expect(result.exitCode).toBe(4);
@@ -214,11 +214,11 @@ describe("cli integration", () => {
       "--url",
       `${baseUrl}/subscription.yaml`,
       "--script",
-      "./test/fixtures/throwingProcessor.ts",
+      "./test/fixtures/throwingProcessor.js",
     ]);
 
     expect(result.exitCode).toBe(5);
-    expect(result.stderr).toContain("Processor execution failed");
+    expect(result.stderr).toContain("Processor execution failed:");
     expect(result.stderr).toContain("fixture processor failed");
   });
 });

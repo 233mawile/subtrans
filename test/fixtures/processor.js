@@ -1,10 +1,8 @@
-import type { ClashConfig, Proxy } from "#processorTypes";
-
-function isNamedProxy(value: unknown): value is Proxy {
+function isNamedProxy(value) {
   return typeof value === "object" && value !== null && "name" in value;
 }
 
-export default function processClashConfig(config: ClashConfig): ClashConfig {
+export default function processClashConfig(config) {
   const proxies = Array.isArray(config.proxies) ? config.proxies : [];
 
   const nextProxies = proxies
@@ -29,14 +27,9 @@ export default function processClashConfig(config: ClashConfig): ClashConfig {
       })
     : config["proxy-groups"];
 
-  const nextConfig: ClashConfig = {
+  return {
     ...config,
     proxies: nextProxies,
+    ...(proxyGroups ? { "proxy-groups": proxyGroups } : {}),
   };
-
-  if (proxyGroups) {
-    nextConfig["proxy-groups"] = proxyGroups;
-  }
-
-  return nextConfig;
 }
