@@ -21,8 +21,8 @@
   "scripts": {
     "start": "node .",
     "tsc": "tsc --noEmit",
-    "test": "vitest run test/cli.integration.test.ts",
-    "test:worker": "vitest run -c vitest.worker.config.ts",
+    "test": "vitest run -c vitest.e2e.config.ts",
+    "test:worker": "vitest run -c vitest.e2e.config.ts",
     "worker:dev": "wrangler dev",
     "worker:build": "wrangler deploy --dry-run --outdir dist/worker",
     "worker:deploy": "wrangler deploy",

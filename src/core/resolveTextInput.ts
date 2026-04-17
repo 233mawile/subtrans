@@ -33,7 +33,7 @@ export async function resolveTextInput(
     throw new AppError({
       code: "network",
       exitCode: EXIT_CODES.network,
-      message: `Failed to fetch resource: ${response.status} ${response.statusText}`,
+      message: `Failed to fetch resource: ${input.url} ${response.status} ${response.statusText}`,
     });
   }
 

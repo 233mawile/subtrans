@@ -22,8 +22,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
-    "test/**/*.ts",
-    "test/**/*.d.ts",
+    "e2e/**/*.ts",
+    "e2e/**/*.d.ts",
     "worker-configuration.d.ts"
   ]
 }
