@@ -7,6 +7,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./core": "./src/core/index.ts",
     "./processorTypes": "./src/processorTypes/index.ts"
   },
   "imports": {
