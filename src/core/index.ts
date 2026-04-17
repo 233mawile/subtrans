@@ -1,4 +1,4 @@
-export { AppError, EXIT_CODES, toAppError } from "./appError.ts";
+export { AppError, toAppError } from "./appError.ts";
 export type {
   TransformErrorCode,
   TransformFailure,

@@ -1,4 +1,5 @@
-import { AppError, EXIT_CODES } from "#core";
+import { AppError } from "#core";
+import { EXIT_CODES } from "../core/appError.ts";
 
 import type { WorkerRequestInput } from "./workerTypes.ts";
 

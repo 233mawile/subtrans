@@ -1,4 +1,5 @@
-import { AppError, EXIT_CODES, toAppError, transformSubscription } from "#core";
+import { AppError, toAppError, transformSubscription } from "#core";
+import { EXIT_CODES } from "../core/appError.ts";
 
 import { parseRequest } from "./parseRequest.ts";
 import type { WorkerEnv } from "./workerTypes.ts";
