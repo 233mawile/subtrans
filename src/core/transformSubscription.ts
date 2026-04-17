@@ -5,6 +5,17 @@ import * as yamlCodec from "./yamlCodec.ts";
 
 const PROCESSOR_SOURCE_ID = "processor.js";
 
+function normalizeCause(cause: unknown): unknown {
+  if (cause instanceof Error) {
+    return {
+      message: cause.message,
+      name: cause.name,
+    };
+  }
+
+  return cause;
+}
+
 function createFailure(
   code: TransformErrorCode,
   error: unknown,
@@ -19,7 +30,7 @@ function createFailure(
     };
 
     if (error.cause !== undefined) {
-      failure.error.cause = error.cause;
+      failure.error.cause = normalizeCause(error.cause);
     }
 
     return failure;
@@ -29,7 +40,7 @@ function createFailure(
     return {
       ok: false,
       error: {
-        cause: error,
+        cause: normalizeCause(error),
         code,
         message: error.message,
       },

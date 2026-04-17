@@ -22,7 +22,7 @@
     "start": "node .",
     "tsc": "tsc --noEmit",
     "test": "npm run test:core && npm run test:worker",
-    "test:core": "vitest run src/core/transformSubscription.test.ts",
+    "test:core": "vitest run src/core",
     "test:worker": "vitest run -c vitest.e2e.config.ts",
     "worker:dev": "wrangler dev",
     "worker:build": "wrangler deploy --dry-run --outdir dist/worker",

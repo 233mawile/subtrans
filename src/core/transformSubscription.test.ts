@@ -113,8 +113,12 @@ describe("transformSubscription", () => {
       error: {
         code: "core",
         message: "serialize boom",
-        cause: expect.any(Error),
+        cause: {
+          message: "serialize boom",
+          name: "Error",
+        },
       },
     });
+    expect(result.ok ? null : result.error.cause).not.toBeInstanceOf(Error);
   });
 });
