@@ -4,7 +4,7 @@
     "moduleResolution": "nodenext",
     "target": "esnext",
     "lib": ["esnext"],
-    "types": ["node", "@cloudflare/vitest-pool-workers"],
+    "types": ["node"],
 
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
