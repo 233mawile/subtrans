@@ -10,9 +10,16 @@ export async function resolveTextInput(
   }
 
   let response: Response;
+  const requestInit = input.userAgent
+    ? {
+        headers: {
+          "user-agent": input.userAgent,
+        },
+      }
+    : undefined;
 
   try {
-    response = await fetchImpl(input.url);
+    response = await fetchImpl(input.url, requestInit);
   } catch (error) {
     throw new AppError({
       cause: error,

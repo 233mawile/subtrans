@@ -1,7 +1,12 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-import type { TextInput } from "#core";
+import type { NetworkTextInput, TextInput } from "#core";
+
+interface LoadTextInputOptions {
+  filename?: string;
+  userAgent?: string;
+}
 
 function isRemoteHttpUrl(value: string): boolean {
   try {
@@ -15,20 +20,26 @@ function isRemoteHttpUrl(value: string): boolean {
 
 export async function loadTextInput(
   value: string,
-  filename?: string,
+  options: LoadTextInputOptions = {},
 ): Promise<TextInput> {
   if (isRemoteHttpUrl(value)) {
-    return {
+    const networkInput: NetworkTextInput = {
       type: "network",
       url: value,
     };
+
+    if (options.userAgent) {
+      networkInput.userAgent = options.userAgent;
+    }
+
+    return networkInput;
   }
 
   const resolvedPath = resolve(value);
   const text = await readFile(resolvedPath, "utf8");
 
   return {
-    filename: filename ?? resolvedPath,
+    filename: options.filename ?? resolvedPath,
     text,
     type: "source",
   };

@@ -2,7 +2,7 @@ import {
   isFail,
   type QuickJSContext,
   type QuickJSHandle,
-} from "quickjs-emscripten-core";
+} from "quickjs-emscripten";
 
 import type { ClashConfig } from "../processorTypes/clashTypes.ts";
 import { AppError, EXIT_CODES } from "./appError.ts";

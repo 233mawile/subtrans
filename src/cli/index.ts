@@ -22,8 +22,13 @@ export async function runCli(argv = process.argv.slice(2)): Promise<void> {
     }
 
     const [subscription, processor] = await Promise.all([
-      loadTextInput(args.subscriptionUrl),
-      loadTextInput(args.processorPath, args.processorPath),
+      loadTextInput(args.subscriptionUrl, {
+        userAgent: args.userAgent,
+      }),
+      loadTextInput(args.processorPath, {
+        filename: args.processorPath,
+        userAgent: args.userAgent,
+      }),
     ]);
     const result = await runPipeline({
       processor,

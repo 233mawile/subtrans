@@ -5,7 +5,10 @@ export interface CliArgs {
   outputPath?: string;
   processorPath: string;
   subscriptionUrl: string;
+  userAgent: string;
 }
+
+export const DEFAULT_USER_AGENT = "clash-verge/v2.4.7";
 
 const HELP_TEXT = [
   "Usage:",
@@ -15,6 +18,7 @@ const HELP_TEXT = [
   "  --url       Remote HTTP URL or local subscription file path",
   "  --script    Local processor module path",
   "  --out       Optional output file path",
+  `  --user-agent Custom User-Agent for remote fetches (default: ${DEFAULT_USER_AGENT})`,
   "  --help      Show this help message",
 ].join("\n");
 
@@ -49,6 +53,7 @@ export function parseArgs(argv: string[]): CliArgs {
   let processorPath = "";
   let outputPath: string | undefined;
   let helpRequested = false;
+  let userAgent = DEFAULT_USER_AGENT;
 
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
@@ -70,6 +75,10 @@ export function parseArgs(argv: string[]): CliArgs {
         outputPath = readOptionValue(argv, index, argument);
         index += 1;
         break;
+      case "--user-agent":
+        userAgent = readOptionValue(argv, index, argument);
+        index += 1;
+        break;
       default:
         throw createUsageError(`Unknown argument: ${argument}`);
     }
@@ -80,6 +89,7 @@ export function parseArgs(argv: string[]): CliArgs {
       helpRequested,
       processorPath,
       subscriptionUrl,
+      userAgent,
     };
 
     if (outputPath) {
@@ -101,6 +111,7 @@ export function parseArgs(argv: string[]): CliArgs {
     helpRequested,
     processorPath,
     subscriptionUrl,
+    userAgent,
   };
 
   if (outputPath) {

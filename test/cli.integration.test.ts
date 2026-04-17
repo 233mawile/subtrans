@@ -1,5 +1,6 @@
 import { mkdtemp, readFile } from "node:fs/promises";
 import { createServer } from "node:http";
+import type { IncomingMessage } from "node:http";
 import type { AddressInfo } from "node:net";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
@@ -9,14 +10,16 @@ import { fileURLToPath } from "node:url";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { parse } from "yaml";
 
+import { DEFAULT_USER_AGENT } from "../src/cli/parseArgs.ts";
+
 interface CliResult {
   exitCode: number | null;
   stderr: string;
   stdout: string;
 }
 
-const repoRoot = fileURLToPath(new URL("../", import.meta.url));
-const fixturesDir = fileURLToPath(new URL("./fixtures/", import.meta.url));
+const repoRoot = fileURLToPath(new URL("../", import.meta.url).href);
+const fixturesDir = fileURLToPath(new URL("./fixtures/", import.meta.url).href);
 
 const subscriptionFixture = await readFile(
   join(fixturesDir, "subscription.yaml"),
@@ -37,6 +40,12 @@ const largeSubscriptionFixture = await readFile(
 
 let baseUrl = "";
 let server: ReturnType<typeof createServer>;
+
+function getUserAgentHeader(request: IncomingMessage): string | undefined {
+  const header = request.headers["user-agent"];
+
+  return Array.isArray(header) ? header[0] : header;
+}
 
 async function runCli(args: string[]): Promise<CliResult> {
   return await new Promise((resolve, reject) => {
@@ -83,6 +92,30 @@ beforeAll(async () => {
       case "/large-subscription.yaml":
         response.writeHead(200, { "content-type": "text/yaml; charset=utf-8" });
         response.end(largeSubscriptionFixture);
+        return;
+      case "/subscription-requires-default-agent":
+        if (getUserAgentHeader(request) !== DEFAULT_USER_AGENT) {
+          response.writeHead(404, {
+            "content-type": "text/plain; charset=utf-8",
+          });
+          response.end("Not Found");
+          return;
+        }
+
+        response.writeHead(200, { "content-type": "text/yaml; charset=utf-8" });
+        response.end(subscriptionFixture);
+        return;
+      case "/subscription-requires-custom-agent":
+        if (getUserAgentHeader(request) !== "Subtrans-Test/1.0") {
+          response.writeHead(404, {
+            "content-type": "text/plain; charset=utf-8",
+          });
+          response.end("Not Found");
+          return;
+        }
+
+        response.writeHead(200, { "content-type": "text/yaml; charset=utf-8" });
+        response.end(subscriptionFixture);
         return;
       default:
         response.writeHead(404, {
@@ -170,6 +203,34 @@ describe("cli integration", () => {
     expect(result.exitCode).toBe(0);
     expect(result.stdout).toBe("");
     expect(parse(outputContent)).toEqual(parse(expectedFixture));
+  });
+
+  it("uses the default user agent for remote fetches", async () => {
+    const result = await runCli([
+      "--url",
+      `${baseUrl}/subscription-requires-default-agent`,
+      "--script",
+      "./test/fixtures/processor.js",
+    ]);
+
+    expect(result.exitCode).toBe(0);
+    expect(result.stderr).toBe("");
+    expect(parse(result.stdout)).toEqual(parse(expectedFixture));
+  });
+
+  it("overrides the default user agent when --user-agent is provided", async () => {
+    const result = await runCli([
+      "--url",
+      `${baseUrl}/subscription-requires-custom-agent`,
+      "--script",
+      "./test/fixtures/processor.js",
+      "--user-agent",
+      "Subtrans-Test/1.0",
+    ]);
+
+    expect(result.exitCode).toBe(0);
+    expect(result.stderr).toBe("");
+    expect(parse(result.stdout)).toEqual(parse(expectedFixture));
   });
 
   it("reads a local subscription file path and writes transformed yaml to stdout", async () => {

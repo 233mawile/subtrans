@@ -11,26 +11,37 @@
   },
   "imports": {
     "#core": "./src/core/index.ts",
-    "#processorTypes": "./src/processorTypes/index.ts"
+    "#processorTypes": "./src/processorTypes/index.ts",
+    "#quickjsLoader": {
+      "workerd": "./src/core/getQuickJsWorkerd.ts",
+      "default": "./src/core/getQuickJsDefault.ts"
+    }
   },
   "main": "src/index.ts",
   "scripts": {
     "start": "node .",
     "tsc": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run test/cli.integration.test.ts",
+    "test:worker": "vitest run -c vitest.worker.config.ts",
+    "worker:dev": "wrangler dev",
+    "worker:build": "wrangler deploy --dry-run --outdir dist/worker",
+    "worker:deploy": "wrangler deploy",
+    "worker:types": "wrangler types",
     "lint": "prettier ./src/ --check",
     "lint:fix": "prettier ./src/ --write"
   },
   "dependencies": {
     "@jitl/quickjs-wasmfile-release-sync": "^0.32.0",
-    "quickjs-emscripten-core": "^0.32.0",
+    "quickjs-emscripten": "^0.32.0",
     "typescript": "^6.0.2",
     "yaml": "^2.8.1"
   },
   "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.14.2",
     "@types/node": "^25.5.2",
     "prettier": "^3.8.1",
-    "vitest": "^4.1.3"
+    "vitest": "^4.1.3",
+    "wrangler": "^4.81.0"
   },
   "engines": {
     "node": "24"

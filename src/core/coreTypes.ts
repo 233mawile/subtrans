@@ -1,5 +1,6 @@
 export interface NetworkTextInput {
   type: "network";
+  userAgent?: string;
   url: string;
 }
 
