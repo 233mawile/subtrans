@@ -1,5 +1,4 @@
-import { AppError, runPipeline, toAppError } from "#core";
-import type { NetworkTextInput } from "#core";
+import { AppError, EXIT_CODES, toAppError, transformSubscription } from "#core";
 
 import { parseRequest } from "./parseRequest.ts";
 import type { WorkerEnv } from "./workerTypes.ts";
@@ -27,6 +26,63 @@ function createErrorResponse(error: AppError): Response {
   });
 }
 
+function createTransformErrorResponse(
+  error: { code: "input" | "script" | "core"; message: string },
+): Response {
+  return new Response(`${error.message}\n`, {
+    headers: {
+      "content-type": "text/plain; charset=utf-8",
+    },
+    status: error.code === "core" ? 500 : 400,
+  });
+}
+
+async function fetchRemoteText(
+  url: string,
+  userAgent?: string,
+): Promise<string> {
+  let response: Response;
+
+  try {
+    response = await fetch(
+      url,
+      userAgent
+        ? {
+            headers: {
+              "user-agent": userAgent,
+            },
+          }
+        : undefined,
+    );
+  } catch (error) {
+    throw new AppError({
+      cause: error,
+      code: "network",
+      exitCode: EXIT_CODES.network,
+      message: `Failed to fetch resource: ${url}`,
+    });
+  }
+
+  if (!response.ok) {
+    throw new AppError({
+      code: "network",
+      exitCode: EXIT_CODES.network,
+      message: `Failed to fetch resource: ${url} ${response.status} ${response.statusText}`,
+    });
+  }
+
+  try {
+    return await response.text();
+  } catch (error) {
+    throw new AppError({
+      cause: error,
+      code: "network",
+      exitCode: EXIT_CODES.network,
+      message: "Failed to read fetched response body",
+    });
+  }
+}
+
 export async function handleWorkerRequest(
   request: Request,
   _env: WorkerEnv,
@@ -43,26 +99,21 @@ export async function handleWorkerRequest(
 
   try {
     const { processorUrl, subscriptionUrl } = parseRequest(request);
-    const processorInput: NetworkTextInput = {
-      type: "network",
-      url: processorUrl,
-    };
-    const subscriptionInput: NetworkTextInput = {
-      type: "network",
-      url: subscriptionUrl,
-    };
-    const requestUserAgent = request.headers.get("user-agent");
-
-    if (requestUserAgent) {
-      subscriptionInput.userAgent = requestUserAgent;
-    }
-
-    const result = await runPipeline({
-      processor: processorInput,
-      subscription: subscriptionInput,
+    const requestUserAgent = request.headers.get("user-agent") ?? undefined;
+    const [subscriptionText, processorSource] = await Promise.all([
+      fetchRemoteText(subscriptionUrl, requestUserAgent),
+      fetchRemoteText(processorUrl),
+    ]);
+    const result = await transformSubscription({
+      processorSource,
+      subscriptionText,
     });
 
-    return new Response(result.outputYaml, {
+    if (!result.ok) {
+      return createTransformErrorResponse(result.error);
+    }
+
+    return new Response(result.output, {
       headers: {
         "content-type": "text/yaml; charset=utf-8",
       },

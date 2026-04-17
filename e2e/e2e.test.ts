@@ -139,7 +139,7 @@ describe("worker e2e", () => {
     expect(body).toContain("404");
   });
 
-  it("returns 500 when yaml parsing fails", async () => {
+  it("returns 400 when yaml parsing fails", async () => {
     const response = await fetch(
       workerUrl({
         script: env.fixtureUrl(fixtureRoutes.processor),
@@ -148,11 +148,11 @@ describe("worker e2e", () => {
     );
     const body = await response.text();
 
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(400);
     expect(body).toContain("Failed to parse YAML");
   });
 
-  it("returns 500 when the processor does not export a default function", async () => {
+  it("returns 400 when the processor does not export a default function", async () => {
     const response = await fetch(
       workerUrl({
         script: env.fixtureUrl(fixtureRoutes.invalidProcessor),
@@ -161,11 +161,11 @@ describe("worker e2e", () => {
     );
     const body = await response.text();
 
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(400);
     expect(body).toContain("Processor must export a default function");
   });
 
-  it("returns 500 when the processor throws", async () => {
+  it("returns 400 when the processor throws", async () => {
     const response = await fetch(
       workerUrl({
         script: env.fixtureUrl(fixtureRoutes.throwingProcessor),
@@ -174,7 +174,7 @@ describe("worker e2e", () => {
     );
     const body = await response.text();
 
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(400);
     expect(body).toContain("Processor execution failed:");
     expect(body).toContain("fixture processor failed");
   });
