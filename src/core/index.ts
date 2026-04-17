@@ -1,4 +1,3 @@
-export { AppError, toAppError } from "./appError.ts";
 export type {
   TransformErrorCode,
   TransformFailure,

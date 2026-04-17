@@ -1,6 +1,6 @@
 import { AppError } from "./appError.ts";
 import type { TransformErrorCode, TransformInput, TransformResult } from "./coreTypes.ts";
-import { runSandboxProcessor } from "./runSandboxProcessor.ts";
+import * as sandboxProcessor from "./runSandboxProcessor.ts";
 import * as yamlCodec from "./yamlCodec.ts";
 
 const PROCESSOR_SOURCE_ID = "processor.js";
@@ -56,6 +56,17 @@ function createFailure(
   };
 }
 
+function getSandboxFailureCode(error: unknown): TransformErrorCode {
+  if (
+    error instanceof AppError &&
+    (error.code === "processorLoad" || error.code === "processorRun")
+  ) {
+    return "script";
+  }
+
+  return "core";
+}
+
 export async function transformSubscription(
   input: TransformInput,
 ): Promise<TransformResult> {
@@ -70,13 +81,13 @@ export async function transformSubscription(
   let nextConfig;
 
   try {
-    nextConfig = await runSandboxProcessor(
+    nextConfig = await sandboxProcessor.runSandboxProcessor(
       config,
       input.processorSource,
       PROCESSOR_SOURCE_ID,
     );
   } catch (error) {
-    return createFailure("script", error);
+    return createFailure(getSandboxFailureCode(error), error);
   }
 
   try {

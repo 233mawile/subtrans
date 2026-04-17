@@ -3,6 +3,8 @@ import { readFile } from "node:fs/promises";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { fixtureFiles, fixturePath } from "../../e2e/setup/fixtures.ts";
+import { AppError, EXIT_CODES } from "./appError.ts";
+import * as sandboxProcessor from "./runSandboxProcessor.ts";
 import { transformSubscription } from "./transformSubscription.ts";
 import * as yamlCodec from "./yamlCodec.ts";
 
@@ -96,6 +98,52 @@ describe("transformSubscription", () => {
     expect(result.ok ? "" : result.error.message).toContain(
       "Processor execution failed:",
     );
+  });
+
+  it("returns a core error when sandbox bootstrap fails unexpectedly", async () => {
+    vi.spyOn(sandboxProcessor, "runSandboxProcessor").mockRejectedValueOnce(
+      new Error("quickjs bootstrap failed"),
+    );
+
+    const result = await transformSubscription({
+      processorSource,
+      subscriptionText,
+    });
+
+    expect(result).toEqual({
+      ok: false,
+      error: {
+        code: "core",
+        message: "quickjs bootstrap failed",
+        cause: {
+          message: "quickjs bootstrap failed",
+          name: "Error",
+        },
+      },
+    });
+  });
+
+  it("keeps processor load and run app errors classified as script", async () => {
+    vi.spyOn(sandboxProcessor, "runSandboxProcessor").mockRejectedValueOnce(
+      new AppError({
+        code: "processorLoad",
+        exitCode: EXIT_CODES.processorLoad,
+        message: "Processor must export a default function",
+      }),
+    );
+
+    const result = await transformSubscription({
+      processorSource,
+      subscriptionText,
+    });
+
+    expect(result).toEqual({
+      ok: false,
+      error: {
+        code: "script",
+        message: "Processor must export a default function",
+      },
+    });
   });
 
   it("falls back to a core error when serialization throws unexpectedly", async () => {
