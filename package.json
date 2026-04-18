@@ -13,8 +13,8 @@
     "#core": "./src/core/index.ts",
     "#processorTypes": "./src/processorTypes/index.ts",
     "#quickjsLoader": {
-      "workerd": "./src/core/getQuickJsWorkerd.ts",
-      "default": "./src/core/getQuickJsDefault.ts"
+      "workerd": "./src/core/runtime/getQuickJsWorkerd.ts",
+      "default": "./src/core/runtime/getQuickJsDefault.ts"
     }
   },
   "main": "src/core/index.ts",

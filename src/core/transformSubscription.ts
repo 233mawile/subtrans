@@ -1,5 +1,9 @@
 import { AppError } from "./appError.ts";
-import type { TransformErrorCode, TransformInput, TransformResult } from "./coreTypes.ts";
+import type {
+  TransformErrorCode,
+  TransformInput,
+  TransformResult,
+} from "./types.ts";
 import * as sandboxProcessor from "./runSandboxProcessor.ts";
 import * as yamlCodec from "./yamlCodec.ts";
 

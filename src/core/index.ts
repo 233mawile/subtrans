@@ -4,5 +4,5 @@ export type {
   TransformInput,
   TransformResult,
   TransformSuccess,
-} from "./coreTypes.ts";
+} from "./types.ts";
 export { transformSubscription } from "./transformSubscription.ts";
