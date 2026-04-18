@@ -20,7 +20,6 @@
     "worker:dev": "wrangler dev",
     "worker:build": "wrangler deploy --dry-run --outdir dist/worker",
     "worker:deploy": "wrangler deploy",
-    "worker:types": "wrangler types",
     "lint": "prettier ./src/ --check",
     "lint:fix": "prettier ./src/ --write"
   },
