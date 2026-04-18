@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 
 export const fixturesDir = fileURLToPath(
-  new URL("../fixtures/", import.meta.url).href,
+  new URL("../../fixtures/", import.meta.url).href,
 );
 
 export const fixtureFiles = {
