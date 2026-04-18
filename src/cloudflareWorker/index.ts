@@ -27,9 +27,10 @@ function createErrorResponse(error: AppError): Response {
   });
 }
 
-function createTransformErrorResponse(
-  error: { code: "input" | "script" | "core"; message: string },
-): Response {
+function createTransformErrorResponse(error: {
+  code: "input" | "script" | "core";
+  message: string;
+}): Response {
   return new Response(`${error.message}\n`, {
     headers: {
       "content-type": "text/plain; charset=utf-8",

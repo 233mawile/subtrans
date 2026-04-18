@@ -63,7 +63,9 @@ describe("transformSubscription", () => {
         code: "input",
       },
     });
-    expect(result.ok ? "" : result.error.message).toContain("Failed to parse YAML");
+    expect(result.ok ? "" : result.error.message).toContain(
+      "Failed to parse YAML",
+    );
   });
 
   it("returns a script error when the processor has no default export", async () => {

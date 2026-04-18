@@ -1,7 +1,7 @@
 import { parseDocument, stringify } from "yaml";
 
 import { AppError, EXIT_CODES } from "./appError.ts";
-import type { ClashConfig } from "../processorTypes/clashTypes.ts";
+import type { ClashConfig } from "#processorTypes";
 
 function isConfigObject(value: unknown): value is ClashConfig {
   return typeof value === "object" && value !== null && !Array.isArray(value);

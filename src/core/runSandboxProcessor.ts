@@ -4,7 +4,7 @@ import {
   type QuickJSHandle,
 } from "quickjs-emscripten";
 
-import type { ClashConfig } from "../processorTypes/clashTypes.ts";
+import type { ClashConfig } from "#processorTypes";
 import { AppError, EXIT_CODES } from "./appError.ts";
 import {
   getQuickJs,

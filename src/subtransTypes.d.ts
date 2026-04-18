@@ -88,3 +88,5 @@ export interface RuleProvider {
   url?: string;
   [key: string]: unknown;
 }
+
+export type Processor = (config: ClashConfig) => ClashConfig;

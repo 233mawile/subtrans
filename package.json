@@ -1,19 +1,17 @@
 {
   "name": "subtrans",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
+  "description": "Transform rule-based subscriptions for proxy clients in the cloud.",
+  "license": "MIT",
   "author": "233mawile",
   "type": "module",
   "exports": {
-    ".": "./src/core/index.ts",
-    "./processorTypes": "./src/processorTypes/index.ts"
+    "./types": "./src/subtransTypes.d.ts"
   },
   "imports": {
     "#core": "./src/core/index.ts",
-    "#processorTypes": "./src/processorTypes/index.ts"
+    "#processorTypes": "./src/subtransTypes.d.ts"
   },
-  "main": "src/core/index.ts",
   "scripts": {
     "tsc": "tsc --noEmit",
     "test": "npm run test:core && npm run test:worker",
