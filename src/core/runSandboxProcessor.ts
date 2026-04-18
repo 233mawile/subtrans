@@ -9,7 +9,7 @@ import { AppError, EXIT_CODES } from "./appError.ts";
 import {
   getQuickJs,
   shouldInterruptAfterDeadline,
-} from "./runtime/getQuickJs.ts";
+} from "./quickjs/getQuickJs.ts";
 
 const PROCESSOR_MEMORY_LIMIT_BYTES = 64 * 1024 * 1024;
 const PROCESSOR_MAX_STACK_SIZE_BYTES = 1024 * 1024;

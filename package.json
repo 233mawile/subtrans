@@ -11,11 +11,7 @@
   },
   "imports": {
     "#core": "./src/core/index.ts",
-    "#processorTypes": "./src/processorTypes/index.ts",
-    "#quickjsLoader": {
-      "workerd": "./src/core/runtime/getQuickJsWorkerd.ts",
-      "default": "./src/core/runtime/getQuickJsDefault.ts"
-    }
+    "#processorTypes": "./src/processorTypes/index.ts"
   },
   "main": "src/core/index.ts",
   "scripts": {
@@ -31,7 +27,6 @@
     "lint:fix": "prettier ./src/ --write"
   },
   "dependencies": {
-    "@jitl/quickjs-wasmfile-release-sync": "^0.32.0",
     "quickjs-emscripten": "^0.32.0",
     "typescript": "^6.0.2",
     "yaml": "^2.8.1"

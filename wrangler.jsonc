@@ -2,6 +2,5 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "subtrans",
   "main": "src/cloudflareWorker/index.ts",
-  "compatibility_date": "2026-04-05",
-  "compatibility_flags": ["nodejs_compat"]
+  "compatibility_date": "2026-04-05"
 }
