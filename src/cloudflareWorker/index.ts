@@ -39,10 +39,33 @@ function createTransformErrorResponse(error: {
   });
 }
 
+const FORWARDED_SUBSCRIPTION_HEADERS = [
+  "content-disposition",
+  "profile-update-interval",
+  "subscription-userinfo",
+  "profile-web-page-url",
+] as const;
+
+function createSubscriptionResponseHeaders(upstreamHeaders: Headers): Headers {
+  const headers = new Headers();
+
+  for (const name of FORWARDED_SUBSCRIPTION_HEADERS) {
+    const value = upstreamHeaders.get(name);
+
+    if (value !== null) {
+      headers.set(name, value);
+    }
+  }
+
+  headers.set("content-type", "text/yaml; charset=utf-8");
+
+  return headers;
+}
+
 async function fetchRemoteText(
   url: string,
   userAgent?: string,
-): Promise<string> {
+): Promise<{ headers: Headers; text: string }> {
   let response: Response;
 
   try {
@@ -74,7 +97,10 @@ async function fetchRemoteText(
   }
 
   try {
-    return await response.text();
+    return {
+      headers: response.headers,
+      text: await response.text(),
+    };
   } catch (error) {
     throw new AppError({
       cause: error,
@@ -102,12 +128,13 @@ export async function handleWorkerRequest(
   try {
     const { processorUrl, subscriptionUrl } = parseRequest(request);
     const requestUserAgent = request.headers.get("user-agent") ?? undefined;
-    const [subscriptionText, processorSource] = await Promise.all([
+    const [{ headers: subscriptionHeaders, text: subscriptionText }, processor] =
+      await Promise.all([
       fetchRemoteText(subscriptionUrl, requestUserAgent),
       fetchRemoteText(processorUrl),
     ]);
     const result = await transformSubscription({
-      processorSource,
+      processorSource: processor.text,
       subscriptionText,
     });
 
@@ -116,9 +143,7 @@ export async function handleWorkerRequest(
     }
 
     return new Response(result.output, {
-      headers: {
-        "content-type": "text/yaml; charset=utf-8",
-      },
+      headers: createSubscriptionResponseHeaders(subscriptionHeaders),
       status: 200,
     });
   } catch (error) {

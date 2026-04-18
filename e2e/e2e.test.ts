@@ -99,6 +99,45 @@ describe("worker e2e", () => {
     expect(proxyGroups[0]?.hidden).toBe(true);
   });
 
+  it("forwards only approved Clash headers from the subscription response", async () => {
+    const response = await fetch(
+      workerUrl({
+        script: env.fixtureUrl(fixtureRoutes.processor),
+        url: env.fixtureUrl(fixtureRoutes.subscription),
+      }),
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe(
+      "text/yaml; charset=utf-8",
+    );
+    expect(response.headers.get("content-disposition")).toBe(
+      'attachment; filename="test.yaml"',
+    );
+    expect(response.headers.get("profile-update-interval")).toBe("24");
+    expect(response.headers.get("subscription-userinfo")).toBe(
+      "upload=1234; download=2234; total=1024000; expire=2218532293",
+    );
+    expect(response.headers.get("profile-web-page-url")).toBe(
+      "https://example.com/profile",
+    );
+    expect(response.headers.get("x-subtrans-ignore")).toBeNull();
+  });
+
+  it("does not forward approved headers from the processor response", async () => {
+    const response = await fetch(
+      workerUrl({
+        script: env.fixtureUrl(fixtureRoutes.processor),
+        url: env.fixtureUrl(fixtureRoutes.invalidYaml),
+      }),
+    );
+    const body = await response.text();
+
+    expect(response.status).toBe(400);
+    expect(body).toContain("Failed to parse YAML");
+    expect(response.headers.get("subscription-userinfo")).toBeNull();
+  });
+
   it("passes the incoming user-agent to the subscription fetch", async () => {
     const response = await fetch(
       workerUrl({

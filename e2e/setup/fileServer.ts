@@ -6,6 +6,21 @@ import { fixtureFiles, fixturePath, fixtureRoutes } from "./fixtures.ts";
 
 export const DEFAULT_USER_AGENT = "clash-verge/v2.4.7";
 
+const SUBSCRIPTION_RESPONSE_HEADERS = {
+  "content-disposition": 'attachment; filename="test.yaml"',
+  "profile-update-interval": "24",
+  "subscription-userinfo":
+    "upload=1234; download=2234; total=1024000; expire=2218532293",
+  "profile-web-page-url": "https://example.com/profile",
+  "x-subtrans-ignore": "ignore-me",
+} as const;
+
+const PROCESSOR_RESPONSE_HEADERS = {
+  "content-type": "text/javascript; charset=utf-8",
+  "subscription-userinfo":
+    "upload=999; download=999; total=999; expire=999",
+} as const;
+
 export interface FileServerHandle {
   baseUrl: string;
   stop(): Promise<void>;
@@ -47,13 +62,14 @@ export async function startFileServer(): Promise<FileServerHandle> {
   const server = createServer((request, response) => {
     switch (request.url) {
       case fixtureRoutes.subscription:
-        response.writeHead(200, { "content-type": "text/yaml; charset=utf-8" });
+        response.writeHead(200, {
+          "content-type": "text/yaml; charset=utf-8",
+          ...SUBSCRIPTION_RESPONSE_HEADERS,
+        });
         response.end(subscriptionFixture);
         return;
       case fixtureRoutes.processor:
-        response.writeHead(200, {
-          "content-type": "text/javascript; charset=utf-8",
-        });
+        response.writeHead(200, PROCESSOR_RESPONSE_HEADERS);
         response.end(processorFixture);
         return;
       case fixtureRoutes.invalidYaml:
@@ -87,7 +103,10 @@ export async function startFileServer(): Promise<FileServerHandle> {
           return;
         }
 
-        response.writeHead(200, { "content-type": "text/yaml; charset=utf-8" });
+        response.writeHead(200, {
+          "content-type": "text/yaml; charset=utf-8",
+          ...SUBSCRIPTION_RESPONSE_HEADERS,
+        });
         response.end(subscriptionFixture);
         return;
       case fixtureRoutes.subscriptionRequiresCustomAgent:
@@ -99,7 +118,10 @@ export async function startFileServer(): Promise<FileServerHandle> {
           return;
         }
 
-        response.writeHead(200, { "content-type": "text/yaml; charset=utf-8" });
+        response.writeHead(200, {
+          "content-type": "text/yaml; charset=utf-8",
+          ...SUBSCRIPTION_RESPONSE_HEADERS,
+        });
         response.end(subscriptionFixture);
         return;
       default:
