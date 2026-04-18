@@ -4,7 +4,49 @@ export interface ClashConfig {
   "proxy-providers"?: Record<string, ProxyProvider>;
   rules?: string[];
   "rule-providers"?: Record<string, RuleProvider>;
-  dns?: Record<string, unknown>;
+  dns?: DnsConfig;
+  [key: string]: unknown;
+}
+
+export type DnsServer = string;
+
+export type DnsServerList = DnsServer[];
+
+export type DnsPolicyValue = DnsServer | DnsServerList;
+
+export interface DnsFallbackFilter {
+  domain?: string[];
+  geoip?: boolean;
+  "geoip-code"?: string;
+  geosite?: string[];
+  ipcidr?: string[];
+  [key: string]: unknown;
+}
+
+export interface DnsConfig {
+  enable?: boolean;
+  "cache-algorithm"?: "arc" | "lru";
+  "default-nameserver"?: DnsServerList;
+  "direct-nameserver"?: DnsServerList;
+  "direct-nameserver-follow-policy"?: boolean;
+  "enhanced-mode"?: "fake-ip" | "redir-host";
+  fallback?: DnsServerList;
+  "fallback-filter"?: DnsFallbackFilter;
+  "fake-ip-filter"?: string[];
+  "fake-ip-filter-mode"?: "blacklist" | "rule" | "whitelist";
+  "fake-ip-range"?: string;
+  "fake-ip-range6"?: string;
+  "fake-ip-ttl"?: number;
+  ipv6?: boolean;
+  listen?: string;
+  nameserver?: DnsServerList;
+  "nameserver-policy"?: Record<string, DnsPolicyValue>;
+  "prefer-h3"?: boolean;
+  "proxy-server-nameserver"?: DnsServerList;
+  "proxy-server-nameserver-policy"?: Record<string, DnsPolicyValue>;
+  "respect-rules"?: boolean;
+  "use-hosts"?: boolean;
+  "use-system-hosts"?: boolean;
   [key: string]: unknown;
 }
 
