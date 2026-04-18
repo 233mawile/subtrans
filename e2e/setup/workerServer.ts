@@ -34,13 +34,21 @@ async function stopChild(child: ChildProcess): Promise<void> {
     return;
   }
 
-  child.kill("SIGTERM");
+  if (child.pid) {
+    process.kill(-child.pid, "SIGTERM");
+  } else {
+    child.kill("SIGTERM");
+  }
 
   await new Promise<void>((resolve) => {
     child.once("exit", () => resolve());
     setTimeout(() => {
       if (child.exitCode === null) {
-        child.kill("SIGKILL");
+        if (child.pid) {
+          process.kill(-child.pid, "SIGKILL");
+        } else {
+          child.kill("SIGKILL");
+        }
       }
     }, 5_000);
   });
@@ -52,16 +60,22 @@ export async function startWorkerServer(): Promise<WorkerServerHandle> {
   const baseUrl = `http://127.0.0.1:${port}`;
   const stdoutLogPath = join(runDir, "wrangler.stdout.log");
   const stderrLogPath = join(runDir, "wrangler.stderr.log");
+  process.stderr.write(
+    [
+      `[worker-e2e] temp dir: ${runDir}`,
+      `[worker-e2e] stdout log: ${stdoutLogPath}`,
+      `[worker-e2e] stderr log: ${stderrLogPath}`,
+    ].join("\n") + "\n",
+  );
   const stdout = createWriteStream(stdoutLogPath, { flags: "a" });
   const stderr = createWriteStream(stderrLogPath, { flags: "a" });
 
   const child = spawn(
-    process.execPath,
+    "npm",
     [
-      "./node_modules/wrangler/bin/wrangler.js",
-      "dev",
-      "--config",
-      "wrangler.jsonc",
+      "run",
+      "worker:dev",
+      "--",
       "--port",
       String(port),
       "--ip",
@@ -69,6 +83,7 @@ export async function startWorkerServer(): Promise<WorkerServerHandle> {
     ],
     {
       cwd: process.cwd(),
+      detached: true,
       env: process.env,
       stdio: ["ignore", "pipe", "pipe"],
     },

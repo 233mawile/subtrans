@@ -6,7 +6,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "./quickjs/getQuickJs.ts": fileURLToPath(
-        new URL("./src/core/quickjs/getQuickJsNode.ts", import.meta.url),
+        new URL("./src/core/quickjs/getQuickJsVitest.ts", import.meta.url),
       ),
     },
   },

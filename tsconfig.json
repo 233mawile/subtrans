@@ -23,7 +23,6 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "e2e/**/*.ts",
-    "e2e/**/*.d.ts",
-    "worker-configuration.d.ts"
+    "e2e/**/*.d.ts"
   ]
 }

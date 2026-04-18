@@ -1,12 +1,20 @@
 import { readFile } from "node:fs/promises";
 
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+} from "vitest";
 import { parse } from "yaml";
 
 import { fixtureFiles, fixturePath, fixtureRoutes } from "./setup/fixtures.ts";
 import { startWorkerE2EEnv, type WorkerE2EEnv } from "./setup/setup.ts";
 
 let env: WorkerE2EEnv;
+let hadTestFailure = false;
 const expectedFixture = await readFile(
   fixturePath(fixtureFiles.expected),
   "utf8",
@@ -20,8 +28,28 @@ beforeAll(async () => {
   env = await startWorkerE2EEnv();
 });
 
+afterEach((context) => {
+  if (context.task.result?.state === "fail") {
+    hadTestFailure = true;
+  }
+});
+
 afterAll(async () => {
+  if (!env) {
+    return;
+  }
+
   await env.shutdown();
+
+  if (hadTestFailure) {
+    process.stderr.write(
+      [
+        "[worker-e2e] test failed; logs:",
+        `[worker-e2e] stdout log: ${env.paths.workerStdoutLog}`,
+        `[worker-e2e] stderr log: ${env.paths.workerStderrLog}`,
+      ].join("\n") + "\n",
+    );
+  }
 });
 
 function workerUrl(params: Record<string, string>): string {
