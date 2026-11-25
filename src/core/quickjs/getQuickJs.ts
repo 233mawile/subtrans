@@ -1,17 +1,10 @@
 import {
-  RELEASE_SYNC,
-  newQuickJSWASMModule,
-  newVariant,
+  getQuickJS,
   shouldInterruptAfterDeadline,
   type QuickJSWASMModule,
 } from "quickjs-emscripten";
-import quickJsWasmModule from "./quickJsEmscriptenModule.wasm";
 
-const quickJsModulePromise = newQuickJSWASMModule(
-  newVariant(RELEASE_SYNC, {
-    wasmModule: quickJsWasmModule,
-  }),
-);
+const quickJsModulePromise = getQuickJS();
 
 export async function getQuickJs(): Promise<QuickJSWASMModule> {
   return await quickJsModulePromise;

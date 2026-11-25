@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { fixtureFiles, fixturePath } from "../../e2e/setup/fixtures.ts";
+import { fixtureFiles, fixturePath } from "./testFixtures.ts";
 import { AppError, EXIT_CODES } from "./appError.ts";
 import * as sandboxProcessor from "./runSandboxProcessor.ts";
 import { transformSubscription } from "./transformSubscription.ts";

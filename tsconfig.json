@@ -19,10 +19,5 @@
     "allowImportingTsExtensions": true,
     "noEmit": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "e2e/**/*.ts",
-    "e2e/**/*.d.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts"]
 }

@@ -1,6 +1,9 @@
 import { AppError, EXIT_CODES } from "../core/appError.ts";
 
-import type { WorkerRequestInput } from "./workerTypes.ts";
+export interface RequestInput {
+  processorUrl: string;
+  subscriptionUrl: string;
+}
 
 function createRequestError(message: string): AppError {
   return new AppError({
@@ -36,7 +39,7 @@ function parseRemoteUrl(value: string | null, parameterName: string): string {
   return parsedUrl.toString();
 }
 
-export function parseRequest(request: Request): WorkerRequestInput {
+export function parseRequest(request: Request): RequestInput {
   const requestUrl = new URL(request.url);
 
   return {

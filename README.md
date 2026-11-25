@@ -6,10 +6,10 @@
 
 ## 怎么用
 
-部署好 Worker 后，访问：
+部署到 Vercel 后，访问：
 
 ```text
-https://your-worker-domain/?url=<subscription-url>&script=<processor-script-url>
+https://your-vercel-domain/?url=<subscription-url>&script=<processor-script-url>
 ```
 
 其中：
@@ -20,7 +20,7 @@ https://your-worker-domain/?url=<subscription-url>&script=<processor-script-url>
 示例：
 
 ```text
-https://subtrans.example.workers.dev/?url=https%3A%2F%2Fexample.com%2Fsubscription.yaml&script=https%3A%2F%2Fexample.com%2Fprocessor.js
+https://subtrans.example.vercel.app/?url=https%3A%2F%2Fexample.com%2Fsubscription.yaml&script=https%3A%2F%2Fexample.com%2Fprocessor.js
 ```
 
 将这个地址填入支持远程订阅的客户端即可。不同 app、不同平台拿到的都会是同一份处理结果。
@@ -166,39 +166,32 @@ export default function processor(config) {
 
 ## 如何部署
 
-只需完成以下步骤：
+推荐使用 Vercel 直接导入 GitHub 仓库部署：
 
-安装依赖：
+1. 在 Vercel 控制台选择 **Add New → Project**，导入本仓库
+2. Framework Preset 选择 **Other**，其余配置会自动读取 [vercel.json](./vercel.json)
+3. 点击 **Deploy**，后续推送到默认分支会自动重新部署
+
+本地安装与构建：
 
 ```bash
 npm install
+npm run vercel:build
 ```
 
-本地调试 Worker：
-
-```bash
-npm run worker:dev
-```
-
-部署到 Cloudflare Worker：
-
-```bash
-npm run worker:deploy
-```
-
-Worker 当前使用 [wrangler.jsonc](./wrangler.jsonc) 配置，入口在 [src/cloudflareWorker/index.ts](./src/cloudflareWorker/index.ts)。
+Vercel 函数入口在 [api/index.js](./api/index.js)，核心请求处理在 [src/vercel/index.ts](./src/vercel/index.ts)，构建脚本在 [scripts/vercelBuild.mjs](./scripts/vercelBuild.mjs)。
 
 ## 注意事项
 
 有些机场会根据请求头中的 User-Agent 返回不同类型的订阅内容。这个项目会将客户端请求中的 User-Agent 透传给订阅源。
 
-例如客户端请求 Worker 时带上：
+例如客户端请求服务时带上：
 
 ```text
 User-Agent: Clash.Meta/1.19.0
 ```
 
-那么 Worker 在拉取原始订阅时，也会使用相同的 User-Agent 请求上游订阅地址。
+那么服务在拉取原始订阅时，也会使用相同的 User-Agent 请求上游订阅地址。
 
 ## 请求约束
 
