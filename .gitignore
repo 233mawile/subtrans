@@ -3,3 +3,5 @@ dist/
 .wrangler/
 AGENTS.md
 .agents/
+api/
+.vercel/
