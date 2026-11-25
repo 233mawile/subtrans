@@ -17,7 +17,7 @@ const useNodeQuickJs = {
 
 await build({
   entryPoints: ["src/vercel/index.ts"],
-  outfile: "api/index.mjs",
+  outfile: "dist/vercel/index.mjs",
   bundle: true,
   platform: "node",
   format: "esm",
