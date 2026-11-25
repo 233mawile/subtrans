@@ -128,11 +128,13 @@ export async function handleRequest(request: Request): Promise<Response> {
   try {
     const { processorUrl, subscriptionUrl } = parseRequest(request);
     const requestUserAgent = request.headers.get("user-agent") ?? undefined;
-    const [{ headers: subscriptionHeaders, text: subscriptionText }, processor] =
-      await Promise.all([
-        fetchRemoteText(subscriptionUrl, requestUserAgent),
-        fetchRemoteText(processorUrl),
-      ]);
+    const [
+      { headers: subscriptionHeaders, text: subscriptionText },
+      processor,
+    ] = await Promise.all([
+      fetchRemoteText(subscriptionUrl, requestUserAgent),
+      fetchRemoteText(processorUrl),
+    ]);
     const result = await transformSubscription({
       processorSource: processor.text,
       subscriptionText,
